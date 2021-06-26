@@ -734,6 +734,7 @@ body {
 }
 
 .header_info__top .header_info__last .play img {
+  pointer-events: none;
   width: 3.5rem;
   height: 3.5rem;
   margin-left: 0.75rem;
