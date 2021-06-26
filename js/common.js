@@ -19,15 +19,32 @@
 
 'use strict';
 
-var player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    events: {
-      // 'onReady': onPlayerReady,
-      // 'onStateChange': onPlayerStateChange
-    }
-  });
-}
+const video_id = document.querySelector('#video_content').getAttribute('data-id');;
+
+var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('video_content', {
+          height: '390',
+          width: '100%',
+          videoId: video_id,
+          events: {
+            // 'onReady': onPlayerReady,
+            // 'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+	  function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
 
 const swiper = new Swiper('#slider_header', {
 	slidesPerView: 1,
@@ -116,6 +133,7 @@ const play_button = document.querySelector('._js_play_video');
 play_button.addEventListener('click', () => {
 	popup_video.classList.add('active');
 	player.playVideo();
+	// onPlayerReady(document.querySelector('#video_content'));
 	// onPlayerReady(popup_video.querySelector('iframe'));
 });
 
