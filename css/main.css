@@ -1329,9 +1329,9 @@ body {
 @media (max-width: 540px) {
   .product__items .item__text .button_border {
     font-size: 0.5625rem;
-    -webkit-align-self: flex-start;
-        -ms-flex-item-align: start;
-            align-self: flex-start;
+    -webkit-align-self: baseline;
+        -ms-flex-item-align: baseline;
+            align-self: baseline;
   }
 }
 
